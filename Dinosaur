@@ -1,0 +1,74 @@
+package net.mrpaul.ads.TM120.Final;
+
+public class Dinosaur {
+	int runningSpeed;
+	int swimmingSpeed;
+	final int JUMPHEIGHT;
+	int xpos;
+	int ypos;
+	int stamina;
+	int width = 1000;
+	int height = 1000;
+	int max;
+	int maxStamina;
+	
+	public Dinosaur(){
+		runningSpeed = 5;
+		swimmingSpeed = 5;
+		JUMPHEIGHT = 10;
+		xpos = 0;
+		ypos = 0;
+		stamina = 20;
+	}
+	public Dinosaur(int rs, int ss){
+		runningSpeed = 5;
+		swimmingSpeed = 5;
+		JUMPHEIGHT = 10;
+		xpos = 0;
+		ypos = 0;
+	}
+	public void move(int x, int y){
+		if(xpos + x > width){
+			xpos = 1000;
+		}else if(xpos - x < 0){
+			xpos= 0;
+		}else{
+			xpos += x;
+		}
+		if(ypos + x > width){
+			ypos = 1000;
+		}else if(ypos - x < 0){
+			ypos= 0;
+		}else{
+			ypos += y;
+		}
+	}
+	
+	public void changeRunSpeed(int n){
+		if(runningSpeed + n > max){
+			runningSpeed = max;
+		}else{
+			runningSpeed += n;
+		}
+	}
+	
+	public void changeSwimSpeed(int n){
+		if(swimmingSpeed + n > max){
+			swimmingSpeed = max;
+		}else{
+			swimmingSpeed += n;
+		}
+	}
+	
+	public void changeStamina(int n){
+		if(stamina + n > maxStamina){
+			stamina = maxStamina;
+		}else{
+			stamina += n;
+		}
+	}
+	
+	public void incMax(int n){
+		max += n;
+	}
+}
